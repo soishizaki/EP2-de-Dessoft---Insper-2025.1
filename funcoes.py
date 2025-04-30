@@ -11,3 +11,8 @@ def guardar_dado(dados_rolados, dados_guardados, indice_para_guardar):
     dado_escolhido = dados_rolados.pop(indice_para_guardar)
     dados_guardados.append(dado_escolhido)
     return [dados_rolados, dados_guardados]
+
+def remover_dado(dados_rolados, dados_guardados, indice_para_remover):
+    dado = dados_guardados.pop(indice_para_remover)
+    dados_rolados.append(dado)
+    return [dados_rolados, dados_guardados]
