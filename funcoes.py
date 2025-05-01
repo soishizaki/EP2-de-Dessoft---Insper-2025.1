@@ -22,6 +22,5 @@ def calcula_pontos_regra_simples(dados):
     for valor in dados:
         if 1 <= valor <= 6:
             pontuacoes[valor] += valor
-
     return pontuacoes
 
