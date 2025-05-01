@@ -24,3 +24,45 @@ def calcula_pontos_regra_simples(dados):
             pontuacoes[valor] += valor
     return pontuacoes
 
+def calcula_pontos_soma(dados):
+    total = 0  
+    for valor in dados:
+        total += valor  
+    return total
+
+def calcula_pontos_sequencia_baixa(dados):
+    dados_unicos = []
+    for valor in dados:
+        duplicado = False
+        for item in dados_unicos:
+            if item == valor:
+                duplicado = True
+                break
+        if not duplicado:
+            dados_unicos.append(valor)
+    n = len(dados_unicos)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if dados_unicos[j] > dados_unicos[j + 1]:
+                dados_unicos[j], dados_unicos[j + 1] = dados_unicos[j + 1], dados_unicos[j]
+    sequencias = [
+        [1, 2, 3, 4],
+        [2, 3, 4, 5],
+        [3, 4, 5, 6]
+    ]
+    for seq in sequencias:
+        contem_todos = True
+        for numero in seq:
+            encontrado = False
+            for dado in dados_unicos:
+                if dado == numero:
+                    encontrado = True
+                    break
+            if not encontrado:
+                contem_todos = False
+                break
+        if contem_todos:
+            return 15
+
+    return 0
+
