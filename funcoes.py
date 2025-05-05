@@ -161,3 +161,24 @@ def calcula_pontos_quadra(dados):
             return soma
 
     return 0
+
+def calcula_pontos_quina(dados):
+    contagem = []
+    for i in range(len(dados)):
+        valor = dados[i]
+        ja_foi_contado = False
+
+        for j in range(len(contagem)):
+            if contagem[j][0] == valor:
+                contagem[j][1] += 1
+                ja_foi_contado = True
+                break
+
+        if not ja_foi_contado:
+            contagem.append([valor, 1])
+
+    for i in range(len(contagem)):
+        if contagem[i][1] >= 4:
+            return 50  
+
+    return 0
