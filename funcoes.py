@@ -125,15 +125,15 @@ def calcula_pontos_full_house(dados):
 
     for i in range(len(contagem)):
         quantidade = contagem[i][1]
-        if quantidade >= 3:  
+        if quantidade == 3:  
             achou_tres = True
-        if quantidade == 2:
+        elif quantidade == 2:  
             achou_dois = True
 
     if achou_tres and achou_dois:
         soma = 0
-        for i in range(len(contagem)):  
-            soma += contagem[i][0]
+        for i in range(len(dados)):  
+            soma += dados[i]
         return soma
     else:
         return 0
