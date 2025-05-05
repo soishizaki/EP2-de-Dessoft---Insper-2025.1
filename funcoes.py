@@ -65,3 +65,35 @@ def calcula_pontos_sequencia_baixa(dados):
             return 15
     return 0
 
+def calcula_pontos_sequencia_alta(dados):
+    dados_sem_repetidos = []
+    for valor in dados:
+        for outro_valor in dados_sem_repetidos:
+            if valor == outro_valor:
+                break 
+        else:
+            dados_sem_repetidos.append(valor)
+
+    quantidade = len(dados_sem_repetidos)
+    for i in range(quantidade):
+        for j in range(0, quantidade - i - 1):
+            atual = dados_sem_repetidos[j]
+            proximo = dados_sem_repetidos[j + 1]
+            if atual < proximo:  
+                dados_sem_repetidos[j], dados_sem_repetidos[j + 1] = proximo, atual
+
+    sequencias_altas_possiveis = [
+        [1, 2, 3, 4, 5],
+        [2, 3, 4, 5, 6]
+    ]
+
+    for sequencia in sequencias_altas_possiveis:
+        todos_os_numeros_encontrados = True
+        for numero in sequencia:
+            if numero not in dados:  
+                todos_os_numeros_encontrados = False
+                break
+        if todos_os_numeros_encontrados:
+            return 30
+
+    return 0
