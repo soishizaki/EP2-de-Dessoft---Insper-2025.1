@@ -68,10 +68,12 @@ def calcula_pontos_sequencia_baixa(dados):
 def calcula_pontos_sequencia_alta(dados):
     dados_sem_repetidos = []
     for valor in dados:
+        ja_esta_na_lista = False
         for outro_valor in dados_sem_repetidos:
             if valor == outro_valor:
-                break 
-        else:
+                ja_esta_na_lista = True
+                break
+        if not ja_esta_na_lista:
             dados_sem_repetidos.append(valor)
 
     quantidade = len(dados_sem_repetidos)
@@ -79,7 +81,7 @@ def calcula_pontos_sequencia_alta(dados):
         for j in range(0, quantidade - i - 1):
             atual = dados_sem_repetidos[j]
             proximo = dados_sem_repetidos[j + 1]
-            if atual < proximo:  
+            if atual > proximo:
                 dados_sem_repetidos[j], dados_sem_repetidos[j + 1] = proximo, atual
 
     sequencias_altas_possiveis = [
@@ -90,10 +92,15 @@ def calcula_pontos_sequencia_alta(dados):
     for sequencia in sequencias_altas_possiveis:
         todos_os_numeros_encontrados = True
         for numero in sequencia:
-            if numero not in dados:  
+            encontrado_na_lista = False
+            for valor in dados_sem_repetidos:
+                if numero == valor:
+                    encontrado_na_lista = True
+                    break
+            if not encontrado_na_lista:
                 todos_os_numeros_encontrados = False
                 break
         if todos_os_numeros_encontrados:
-            return 30
+            return 30  
 
-    return 0
+    return 0  
