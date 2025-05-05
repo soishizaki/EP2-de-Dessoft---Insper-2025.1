@@ -216,24 +216,24 @@ def calcula_pontos_regra_avancada(dados):
     return dicionario_final
 
 def faz_jogada(dados, categoria, cartela_de_pontos):
-    if categoria == "1" or categoria == "2" or categoria == "3" or categoria == "4" or categoria == "5" or categoria == "6":
-        numero = 0
-        if categoria == "1":
-            numero = 1
-        elif categoria == "2":
-            numero = 2
-        elif categoria == "3":
-            numero = 3
-        elif categoria == "4":
-            numero = 4
-        elif categoria == "5":
-            numero = 5
-        elif categoria == "6":
-            numero = 6
-        cartela_de_pontos["regra_simples"][numero] = pontuacoes[numero]  
+    if categoria == "1":
+        numero = 1
+    elif categoria == "2":
+        numero = 2
+    elif categoria == "3":
+        numero = 3
+    elif categoria == "4":
+        numero = 4
+    elif categoria == "5":
+        numero = 5
+    elif categoria == "6":
+        numero = 6
+    else:
+        numero = 0  
+    if numero != 0:
         pontuacoes = calcula_pontos_regra_simples(dados)
+        cartela_de_pontos["regra_simples"][numero] = pontuacoes[numero]
     else:
         pontuacoes = calcula_pontos_regra_avancada(dados)
         cartela_de_pontos["regra_avancada"][categoria] = pontuacoes[categoria]
     return cartela_de_pontos
-
