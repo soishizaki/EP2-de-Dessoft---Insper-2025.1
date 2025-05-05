@@ -187,19 +187,20 @@ def calcula_pontos_regra_avancada(dados):
     lista_pontuacoes = []
 
     pontos_quina = calcula_pontos_quina(dados)
-    if pontos_quina == 40:  
+    if pontos_quina == 50:  
         lista_pontuacoes.append(['cinco_iguais', 50])
     else:
         lista_pontuacoes.append(['cinco_iguais', 0])
 
-    pontos_full = calcula_pontos_full_house(dados)
-    lista_pontuacoes.append(['full_house', pontos_full_house])  
-    
+    pontos_full_house = calcula_pontos_full_house(dados)
+    lista_pontuacoes.append(['full_house', pontos_full_house])
+
     pontos_quadra = calcula_pontos_quadra(dados)
     lista_pontuacoes.append(['quadra', pontos_quadra])
 
     pontos_sequencia_alta = calcula_pontos_sequencia_alta(dados)
     lista_pontuacoes.append(['sequencia_alta', pontos_sequencia_alta])
+
     lista_pontuacoes.append(['sequencia_baixa', pontos_sequencia_alta])  
 
     pontos_soma = calcula_pontos_soma(dados)
@@ -212,4 +213,3 @@ def calcula_pontos_regra_avancada(dados):
         dicionario_final[nome] = valor
 
     return dicionario_final
-
