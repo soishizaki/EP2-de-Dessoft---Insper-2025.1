@@ -104,3 +104,36 @@ def calcula_pontos_sequencia_alta(dados):
             return 30  
 
     return 0  
+
+def calcula_pontos_full_house(dados):
+    contagem = []
+    for i in range(len(dados)):
+        valor = dados[i]
+        ja_foi_contado = False
+
+        for j in range(len(contagem)):
+            if contagem[j][0] == valor:
+                contagem[j][1] = 1  
+                ja_foi_contado = True
+                break
+
+        if not ja_foi_contado:
+            contagem.append([valor, 1])
+
+    achou_tres = False
+    achou_dois = False
+
+    for i in range(len(contagem)):
+        quantidade = contagem[i][1]
+        if quantidade >= 3:  
+            achou_tres = True
+        if quantidade == 2:
+            achou_dois = True
+
+    if achou_tres and achou_dois:
+        soma = 0
+        for i in range(len(contagem)):  
+            soma += contagem[i][0]
+        return soma
+    else:
+        return 0
