@@ -170,7 +170,7 @@ def calcula_pontos_quina(dados):
 
         for j in range(len(contagem)):
             if contagem[j][0] == valor:
-                contagem[j][1] += 1
+                contagem[j][1] += 1  
                 ja_foi_contado = True
                 break
 
@@ -178,7 +178,7 @@ def calcula_pontos_quina(dados):
             contagem.append([valor, 1])
 
     for i in range(len(contagem)):
-        if contagem[i][1] >= 4:
-            return 50  
+        if contagem[i][1] >= 5:
+            return 50
 
     return 0
