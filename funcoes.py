@@ -183,7 +183,7 @@ def calcula_pontos_quina(dados):
 
     return 0
 
-def calcula_ponto_regra_avancada(dados):
+def calcula_pontos_regra_avancada(dados):
     lista_pontuacoes = []
 
     pontos_quina = calcula_pontos_quina(dados)
