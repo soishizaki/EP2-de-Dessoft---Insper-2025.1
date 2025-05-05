@@ -113,7 +113,7 @@ def calcula_pontos_full_house(dados):
 
         for j in range(len(contagem)):
             if contagem[j][0] == valor:
-                contagem[j][1] = 1  
+                contagem[j][1] += 1  
                 ja_foi_contado = True
                 break
 
