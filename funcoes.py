@@ -146,7 +146,7 @@ def calcula_pontos_quadra(dados):
 
         for j in range(len(contagem)):
             if contagem[j][0] == valor:
-                contagem[j][1] = 1  
+                contagem[j][1] += 1 
                 ja_foi_contado = True
                 break
 
@@ -154,7 +154,7 @@ def calcula_pontos_quadra(dados):
             contagem.append([valor, 1])
 
     for i in range(len(contagem)):
-        if contagem[i][1] > 4:  
+        if contagem[i][1] >= 4:  
             soma = 0
             for j in range(len(dados)):
                 soma += dados[j]
