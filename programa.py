@@ -36,6 +36,14 @@ while rodada < 12:
                 if a == opcao:
                     opcoes = True
             if not opcoes:
-                print("Opção inválida. Tente novamente.")
+                print("Opção inválida. Tente novamente:")
                 a = input()
+
+            if a == '1':
+            print("Digite o índice do dado que quer guardar (0 a 5):")
+            b = int(input())
+            resultado = guardar_dado(dados_rolados, dados_guardados, b)
+            dados_rolados = resultado[0]
+            dados_guardados = resultado[1]
+
 
