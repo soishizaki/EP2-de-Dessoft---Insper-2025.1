@@ -22,7 +22,7 @@ categs_regra_avançada = ['sem_combinacao', 'quadra', 'full_house', 'sequencia_b
 
 rodada = 0
 while rodada < 12:
-    dados_rolados = rolar_dados(6)
+    dados_rolados = rolar_dados(5)
     dados_guardados = []
     rerrolagens = 0
     jogando = True
@@ -40,71 +40,71 @@ while rodada < 12:
                 print("Opção inválida. Tente novamente:")
                 a = input()
 
-            if a == '1':
-                print("Digite o índice do dado que quer guardar (0 a 5):")
-                b = int(input())
-                resultado = guardar_dado(dados_rolados, dados_guardados, b)
-                dados_rolados = resultado[0]
-                dados_guardados = resultado[1]
+                if a == '1':
+                    print("Digite o índice do dado que quer guardar (0 a 5):")
+                    b = int(input())
+                    resultado = guardar_dado(dados_rolados, dados_guardados, b)
+                    dados_rolados = resultado[0]
+                    dados_guardados = resultado[1]
 
-            elif a == '2':
-                print("Digite o índice do dado que quer remover dos guardados (0 a 5):")
-                b = int(input())
-                resultado = remove(dados_rolados, dados_guardados, b)
-                dados_rolados = resultado[0]
-                dados_guardados = resultado[1]
-            
-            elif a == '3':
-                if rerrolagens >= 2:
-                    print("Você já usou todas as rerrolagens.")
-                else:
-                    quantidade = 0
-                    for dado in dados_rolados:
-                        quantidade = 1
-                    dados_rolados = rolar_dados(quantidade)
-                    rerrolagens += 1
-
-            elif a == '4':
-                imprime_cartela(cartela_de_pontuação)
-
-            elif a == '0':
-                dados_finais = []
-                for c in dados_guardados:
-                    dados_finais.append(c)
-                for c in dados_rolados:
-                    dados_finais.append(c)
-                print("Digite a combinação desejada:")
-                d = input()
-                validacao = False
-                while not validacao:
-                    simples = False
-                    for e in categs_regra_simples:
-                        if d == e:
-                            simples = True
-                    avancada = False
-                    for d in categs_regra_avançada:
-                        if d == e:
-                            avancada = True
-
-                    if simples:
-                        e = int(d)
-                        if cartela_de_pontuação['regra_simples'][e] == -1:
-                            cartela_de_pontuação = faz_jogada(dados_finais, d, cartela_de_pontuação)
-                            validacao = True
-                        else:
-                            print("Essa combinação já foi utilizada:")
-                            d = input()
-                    elif avancada:
-                        if cartela_de_pontuação['regra_avancada'][e] == -1:
-                            cartela_de_pontuação = faz_jogada(dados_finais, d, cartela_de_pontuação)
-                            validacao = True
-                        else:
-                            print("Essa combinação já foi utilizada.")
-                            d = input()
+                elif a == '2':
+                    print("Digite o índice do dado que quer remover dos guardados (0 a 5):")
+                    b = int(input())
+                    resultado = remove(dados_rolados, dados_guardados, b)
+                    dados_rolados = resultado[0]
+                    dados_guardados = resultado[1]
+                
+                elif a == '3':
+                    if rerrolagens >= 2:
+                        print("Você já usou todas as rerrolagens.")
                     else:
-                        print("Combinação inválida. Tente novamente:")
-                        d = input()
-                jogando = False
+                        quantidade = 0
+                        for dado in dados_rolados:
+                            quantidade = 1
+                        dados_rolados = rolar_dados(quantidade)
+                        rerrolagens += 1
+
+                elif a == '4':
+                    imprime_cartela(cartela_de_pontuação)
+
+                elif a == '0':
+                    dados_finais = []
+                    for c in dados_guardados:
+                        dados_finais.append(c)
+                    for c in dados_rolados:
+                        dados_finais.append(c)
+                    print("Digite a combinação desejada:")
+                    d = input()
+                    validacao = False
+                    while not validacao:
+                        simples = False
+                        for e in categs_regra_simples:
+                            if d == e:
+                                simples = True
+                        avancada = False
+                        for d in categs_regra_avançada:
+                            if d == e:
+                                avancada = True
+
+                        if simples:
+                            e = int(d)
+                            if cartela_de_pontuação['regra_simples'][e] == -1:
+                                cartela_de_pontuação = faz_jogada(dados_finais, d, cartela_de_pontuação)
+                                validacao = True
+                            else:
+                                print("Essa combinação já foi utilizada:")
+                                d = input()
+                        elif avancada:
+                            if cartela_de_pontuação['regra_avancada'][e] == -1:
+                                cartela_de_pontuação = faz_jogada(dados_finais, d, cartela_de_pontuação)
+                                validacao = True
+                            else:
+                                print("Essa combinação já foi utilizada.")
+                                d = input()
+                        else:
+                            print("Combinação inválida. Tente novamente:")
+                            d = input()
+                    jogando = False
 
         rodada += 1
     
