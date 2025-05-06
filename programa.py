@@ -121,6 +121,11 @@ for g in cartela_de_pontuação['regra_avancada']:
     if cartela_de_pontuação['regra_avancada'][g] != -1:
         total_pontos += cartela_de_pontuação['regra_avancada'][g]
 
+if pontos_bonus >= 63:
+    total_pontos += 35
+print(f"Pontuação total: {total_pontos}")
+
+
 
 
 
