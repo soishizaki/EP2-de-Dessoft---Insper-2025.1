@@ -76,6 +76,18 @@ while rodada < 12:
                 print("Digite a combinação desejada:")
                 d = input()
                 validacao = False
+                while not validacao:
+                    simples = False
+                    for e in categs_regra_simples:
+                        if d == e:
+                            simples = True
+                    avancada = False
+                    for d in categs_regra_avançada:
+                        if d == e:
+                            avancada = True
+
+
+                            
                 
 
 
