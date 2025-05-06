@@ -86,8 +86,20 @@ while rodada < 12:
                         if d == e:
                             avancada = True
 
-
-                            
-                
+                    if simples:
+                        e = int(d)
+                        if cartela_de_pontuação['regra_simples'][e] == -1:
+                            cartela_de_pontuação = faz_jogada(dados_finais, d, cartela_de_pontuação)
+                            validacao = True
+                        else:
+                            print("Essa combinação já foi utilizada:")
+                            d = input()
+                    elif avancada:
+                        if cartela_de_pontuação['regra_avancada'][e] == -1:
+                            cartela_de_pontuação = faz_jogada(dados_finais, d, cartela_de_pontuação)
+                            validacao = True
+                        else:
+                            print("Essa combinação já foi utilizada.")
+                            d = input()
 
 
