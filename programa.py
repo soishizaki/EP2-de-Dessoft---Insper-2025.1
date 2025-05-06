@@ -25,4 +25,17 @@ while rodada < 12:
     dados_guardados = []
     rerrolagens = 0
     jogando = True
+    while jogando:
+        print(f'Dados rolados: {dados_rolados}')
+        print(f'Dados guardados: {dados_guardados}')
+        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
+        a = input()
+        opcoes = False
+        while not opcoes:
+            for opcao in ['0', '1', '2', '3', '4']:
+                if a == opcao:
+                    opcoes = True
+            if not opcoes:
+                print("Opção inválida. Tente novamente.")
+                a = input()
 
