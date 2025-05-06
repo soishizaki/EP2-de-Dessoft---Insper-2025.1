@@ -64,4 +64,7 @@ while rodada < 12:
                     dados_rolados = rolar_dados(quantidad)
                     rerrolagens += 1
 
+            elif a == '4':
+                imprime_cartela(cartela_de_pontuação)
+
 
