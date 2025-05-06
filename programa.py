@@ -61,7 +61,7 @@ while rodada < 12:
                     quantidade = 0
                     for dado in dados_rolados:
                         quantidade = 1
-                    dados_rolados = rolar_dados(quantidad)
+                    dados_rolados = rolar_dados(quantidade)
                     rerrolagens += 1
 
             elif a == '4':
