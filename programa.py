@@ -1,6 +1,5 @@
 #Nesse exercício vamos tentar ir passo a passo para tentar evitar erros. 
 
-from os import remove
 from funcoes import rolar_dados, guardar_dado, remover_dado, calcula_pontos_regra_simples, calcula_pontos_soma, calcula_pontos_sequencia_baixa, calcula_pontos_sequencia_alta, calcula_pontos_full_house, calcula_pontos_quadra, calcula_pontos_quina, calcula_pontos_regra_avancada, faz_jogada, imprime_cartela
 
 cartela_de_pontuação = {
@@ -16,6 +15,7 @@ cartela_de_pontuação = {
         'cinco_iguais': -1
     }
 }
+imprime_cartela(cartela_de_pontuação)
 
 categs_regra_simples = ['1', '2', '3', '4', '5', '6']
 categs_regra_avançada = ['sem_combinacao', 'quadra', 'full_house', 'sequencia_baixa', 'sequencia_alta', 'cinco_iguais']
@@ -37,7 +37,7 @@ while rodada < 12:
                 if a == opcao:
                     opcoes = True
             if not opcoes:
-                print("Opção inválida. Tente novamente:")
+                print("Opção inválida. Tente novamente.")
                 a = input()
 
                 if a == '1':
@@ -60,7 +60,7 @@ while rodada < 12:
                     else:
                         quantidade = 0
                         for dado in dados_rolados:
-                            quantidade = 1
+                            quantidade += 1
                         dados_rolados = rolar_dados(quantidade)
                         rerrolagens += 1
 
@@ -82,7 +82,7 @@ while rodada < 12:
                             if d == e:
                                 simples = True
                         avancada = False
-                        for d in categs_regra_avançada:
+                        for e in categs_regra_avançada:
                             if d == e:
                                 avancada = True
 
@@ -109,7 +109,7 @@ while rodada < 12:
         rodada += 1
     
 imprime_cartela(cartela_de_pontuação)
-total_ponto = 0
+total_pontos = 0
 pontos_bonus = 0
 
 for f in cartela_de_pontuação['regra_simples']:
