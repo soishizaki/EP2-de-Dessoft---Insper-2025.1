@@ -15,3 +15,9 @@ cartela_de_pontuação = {
         'cinco_iguais': -1
     }
 }
+
+categs_regra_simples = ['1', '2', '3', '4', '5', '6']
+categs_regra_avançada = ['sem_combinacao', 'quadra', 'full_house', 'sequencia_baixa', 'sequencia_alta', 'cinco_iguais']
+
+
+
