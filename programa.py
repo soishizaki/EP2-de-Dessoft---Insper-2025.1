@@ -1,5 +1,6 @@
 #Nesse exercício vamos tentar ir passo a passo para tentar evitar erros. 
 
+from os import remove
 from funcoes import rolar_dados, guardar_dado, remover_dado, calcula_pontos_regra_simples, calcula_pontos_soma, calcula_pontos_sequencia_baixa, calcula_pontos_sequencia_alta, calcula_pontos_full_house, calcula_pontos_quadra, calcula_pontos_quina, calcula_pontos_regra_avancada, faz_jogada, imprime_cartela
 
 cartela_de_pontuação = {
@@ -45,5 +46,12 @@ while rodada < 12:
             resultado = guardar_dado(dados_rolados, dados_guardados, b)
             dados_rolados = resultado[0]
             dados_guardados = resultado[1]
+
+            elif a == '2':
+                print("Digite o índice do dado que quer remover dos guardados (0 a 5):")
+                b = int(input())
+                resultado = remove(dados_rolados, dados_guardados, b)
+                dados_rolados = resultado[0]
+                dados_guardados = resultado[1]
 
 
