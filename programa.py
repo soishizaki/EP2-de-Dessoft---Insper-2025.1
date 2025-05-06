@@ -19,5 +19,10 @@ cartela_de_pontuação = {
 categs_regra_simples = ['1', '2', '3', '4', '5', '6']
 categs_regra_avançada = ['sem_combinacao', 'quadra', 'full_house', 'sequencia_baixa', 'sequencia_alta', 'cinco_iguais']
 
-
+rodada = 0
+while rodada < 12:
+    dados_rolados = rolar_dados(6)
+    dados_guardados = []
+    rerrolagens = 0
+    jogando = True
 
