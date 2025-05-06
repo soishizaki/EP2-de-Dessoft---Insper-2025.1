@@ -41,11 +41,11 @@ while rodada < 12:
                 a = input()
 
             if a == '1':
-            print("Digite o índice do dado que quer guardar (0 a 5):")
-            b = int(input())
-            resultado = guardar_dado(dados_rolados, dados_guardados, b)
-            dados_rolados = resultado[0]
-            dados_guardados = resultado[1]
+                print("Digite o índice do dado que quer guardar (0 a 5):")
+                b = int(input())
+                resultado = guardar_dado(dados_rolados, dados_guardados, b)
+                dados_rolados = resultado[0]
+                dados_guardados = resultado[1]
 
             elif a == '2':
                 print("Digite o índice do dado que quer remover dos guardados (0 a 5):")
@@ -53,5 +53,15 @@ while rodada < 12:
                 resultado = remove(dados_rolados, dados_guardados, b)
                 dados_rolados = resultado[0]
                 dados_guardados = resultado[1]
+            
+            elif a == '3':
+                if rerrolagens >= 2:
+                    print("Você já usou todas as rerrolagens.")
+                else:
+                    quantidade = 0
+                    for dado in dados_rolados:
+                        quantidade = 1
+                    dados_rolados = rolar_dados(quantidad)
+                    rerrolagens += 1
 
 
