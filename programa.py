@@ -101,5 +101,15 @@ while rodada < 12:
                         else:
                             print("Essa combinação já foi utilizada.")
                             d = input()
+                    else:
+                        print("Combinação inválida. Tente novamente:")
+                        d = input()
+                jogando = False
+
+        rodada += 1
+    
+imprime_cartela(cartela_de_pontuação)
+
+
 
 
