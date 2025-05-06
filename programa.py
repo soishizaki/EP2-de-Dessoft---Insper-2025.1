@@ -109,6 +109,19 @@ while rodada < 12:
         rodada += 1
     
 imprime_cartela(cartela_de_pontuação)
+total_ponto = 0
+pontos_bonus = 0
+
+for f in cartela_de_pontuação['regra_simples']:
+    if cartela_de_pontuação['regra_simples'][f] != -1:
+        total_pontos += cartela_de_pontuação['regra_simples'][f]
+        pontos_bonus += cartela_de_pontuação['regra_simples'][f]
+
+for g in cartela_de_pontuação['regra_avancada']:
+    if cartela_de_pontuação['regra_avancada'][g] != -1:
+        total_pontos += cartela_de_pontuação['regra_avancada'][g]
+
+
 
 
 
