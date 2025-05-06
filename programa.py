@@ -67,4 +67,12 @@ while rodada < 12:
             elif a == '4':
                 imprime_cartela(cartela_de_pontuação)
 
+            elif a == '0':
+                dados_finais = []
+                for c in dados_guardados:
+                    dados_finais.append(c)
+                for c in dados_rolados:
+                    dados_finais.append(c)
+                
+
 
