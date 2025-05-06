@@ -73,6 +73,9 @@ while rodada < 12:
                     dados_finais.append(c)
                 for c in dados_rolados:
                     dados_finais.append(c)
+                print("Digite a combinação desejada:")
+                d = input()
+                validacao = False
                 
 
 
